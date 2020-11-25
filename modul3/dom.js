@@ -1,3 +1,5 @@
+import data from "./data.js";
+
 const mainDom = () => {
 
     const customElement = document.querySelector('custom-element');
@@ -8,8 +10,9 @@ const mainDom = () => {
         customElement.setAttribute("title", value);
     }
 
+    customElement.data = data;
     titleElement.addEventListener('input', titleChangeHandler);
-
+    
 }
 
 document.addEventListener("DOMContentLoaded", mainDom);

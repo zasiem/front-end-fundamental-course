@@ -5,11 +5,18 @@ class CustomElements extends HTMLElement {
         // console.log('constructor');
     }
 
+    set data(data){
+        this.src = data.src;
+        this.alt = data.alt;
+        this.caption = data.caption;
+        this.title = data.title;
+    }
+
     connectedCallback() {
-        this.src = this.getAttribute('src');
-        this.alt = this.getAttribute('alt');
-        this.caption = this.getAttribute('caption');
-        this.title = this.getAttribute('title');
+        this.src = this.getAttribute('src') ?? "#";
+        this.alt = this.getAttribute('alt') || null;
+        this.caption = this.getAttribute('caption') || null;
+        this.title = this.getAttribute('title') || null;
         this.render();
     }
 
