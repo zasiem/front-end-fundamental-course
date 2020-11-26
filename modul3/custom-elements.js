@@ -2,7 +2,7 @@ class CustomElements extends HTMLElement {
 
     constructor() {
         super();
-        // console.log('constructor');
+        this._shadowRoot = this.attachShadow({mode: "open"});
     }
 
     set data(data){
@@ -21,7 +21,13 @@ class CustomElements extends HTMLElement {
     }
 
     render() {
-        this.innerHTML = `
+        this._shadowRoot.innerHTML = `
+        <style>
+            small{
+                background-color:lightgray;
+                padding: 20px;
+            }
+        </style>
         <center>
             <h2>${this.title}</h2>
             <img src="${this.src}" alt="${this.alt}" height="200px" />
